@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>🐿️ WenberTube Online</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; padding: 40px; background: #fafafa; }
+    h1 { color: #ff6600; }
+    input, select { width: 400px; padding: 10px; margin: 5px; border-radius: 10px; border: 1px solid #ccc; }
+    button { padding: 10px 20px; border: none; border-radius: 10px; background: #ff6600; color: white; cursor: pointer; }
+    button:hover { background: #e65c00; }
+  </style>
+</head>
+<body>
+  <h1>🐿️ WenberTube Online</h1>
+  <form id="form">
+    <input type="text" id="url" placeholder="Pega el link de YouTube aquí" required><br>
+    <select id="format">
+      <option value="mp4">🎥 Descargar MP4 (Video)</option>
+      <option value="mp3">🎵 Descargar MP3 (Audio)</option>
+    </select><br>
+    <button type="submit">Descargar</button>
+  </form>
+
+  <script>
+    document.getElementById("form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const url = document.getElementById("url").value;
+      const format = document.getElementById("format").value;
+      window.location.href = `/api/download?url=${encodeURIComponent(url)}&format=${format}`;
+    });
+  </script>
+</body>
+</html>
